@@ -8,12 +8,12 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - WUZAPI_ADMIN_TOKEN=H4Zbhw72PBKdTIgS
-      - DB_USER=wuzapi
-      - DB_PASSWORD=wuzapi
-      - DB_NAME=wuzapi
-      - DB_HOST=db
-      - DB_PORT=5432
+      - WUZAPI_ADMIN_TOKEN=${WUZAPI_ADMIN_TOKEN}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
     volumes:
       - ./dbdata:/app/dbdata
       - ./files:/app/files
@@ -25,9 +25,9 @@ services:
   db:
     image: postgres:15
     environment:
-      POSTGRES_USER: wuzapi
-      POSTGRES_PASSWORD: wuzapi
-      POSTGRES_DB: wuzapi
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5432:5432"
     volumes:
