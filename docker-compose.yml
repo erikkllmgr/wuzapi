@@ -12,25 +12,11 @@ services:
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=${DB_NAME}
-      - DB_HOST=db
+      - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}
     volumes:
       - ./dbdata:/app/dbdata
       - ./files:/app/files
-    depends_on:
-      - db
-    networks:
-      - wuzapi-network
-  db:
-    image: postgres:15
-    environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
-    ports:
-      - "5433:5432"
-    volumes:
-      - db_data:/var/lib/postgresql/data
     networks:
       - wuzapi-network
 
